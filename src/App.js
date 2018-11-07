@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { database } from './firebase';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { database } from "./firebase";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -12,11 +12,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    database.ref().on('value', (snapshot) => {
-      console.log('data changed', snapshot.val() )
+    database.ref().on("value", snapshot => {
+      console.log("data changed", snapshot.val());
       this.setState({
         data: snapshot.val()
-      })
+      });
     });
   }
 
@@ -37,9 +37,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        <pre>
-          { JSON.stringify(this.state.data, null, 2)}
-        </pre>
+        <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
       </div>
     );
   }
